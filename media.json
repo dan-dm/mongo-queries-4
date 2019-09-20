@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5bd0d75083c8247b1276739e"},"tipo":"libro","titulo":"Java para todos","ISBN":"987-1-2344-5334-8","editorial":"Anaya","Autor":["Pepe Caballero","Isabel Sanz","Timoteo Marino"],"capítulos":[{"capitulo":1.0,"titulo":"Primeros pasos en Java","longitud":20.0},{"capitulo":2.0,"titulo":"Primeros pasos en Java","longitud":25.0}]}
+{"_id":{"$oid":"5bd0d75083c8247b1276739f"},"tipo":"CD","Artista":"Los piratas","Titulo":"Recuerdos","canciones":[{"cancion":1.0,"titulo":"Adiós mi barco","longitud":"3:20"},{"cancion":2.0,"titulo":"Pajaritos","longitud":"4:15"}]}
+{"_id":{"$oid":"5bd0d75083c8247b127673a0"},"tipo":"DVD","Titulo":"Matrix","estreno":1999.0,"actores":["Keanu Reeves","Carry-Anne Moss","Laurence Fishburne","Hugo Weaving","Gloria Foster","Joe Pantoliano"]}
