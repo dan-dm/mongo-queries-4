@@ -46,21 +46,73 @@ db.media.insertOne(
         leidos:3
     }
 )
+
+db.media.updateOne(
+    {Titulo: "Constantinopla"},
+    {
+        $inc: {leidos:5}
+    }
+)
 ```
 
 EJERCICIO 4(CONT)
 Actualización de Documentos
 4. Actualizar el documento referido a la película «Matrix» cambiando el valor de la clave «género» a «ciencia
 ficción».
+
+```
+db.media.updateOne(
+    {Titulo:"Matrix43"},
+    {$set: {genero: "ciencia ficción"}}
+)
+```
+
 5. Actualizar el documento referido al libro «Java para todos» de manera que se elimine la clave «editorial».
+
+```
+db.media.updateOne(
+    {titulo: "Java para todos"},
+    {$unset: {editorial: ""}}
+)
+```
+
 6. Actualizar el documento referido al libro «Java para todos» añadiendo el autor «María Sancho» al array de
 autores.
+
+```
+db.media.updateOne(
+    {titulo: "Java para todos"},
+    {$push: {Autor: "María Sancho"}}
+)
+```
+
 7. Actualizar el documento referido a la película «Matrix» añadiendo al array «actores» los valores de
 «Antonio Banderas» y «Brad Pitt» en una única operación.
+
+```
+db.media.updateOne(
+    {Titulo: "Matrix"},
+    {$push: {actores: { $each: ["Antonio Banderas", "Brad Pitt"]}}}
+)
+```
+
 8. Actualizar el documento referido a la película «Matrix» añadiendo al array «actores» los valores «Joe
 Pantoliano», «Brad Pitt» y «Natalie Portman» en caso de que no se encuentren, y si se encuentran no se
 hace nada.
+
+```
+db.media.updateOne(
+    {Titulo: "Matrix"},
+    {$addToSet: {actores: { $each: ["Joe Pantoliano", "Brad Pitt", "Natalie Portman"]}}}
+)
+```
+
 9. Actualizar el documento referido a la película «Matrix» eliminando del array el primer y último actor.
+
+```
+
+```
+
 10. Actualizar el documento referido a la película «Matrix» añadiendo al array actores los valores «Joe
 Pantoliano» y «Antonio Banderas».
 EJERCICIO 4(CONT)
