@@ -110,22 +110,63 @@ db.media.updateOne(
 9. Actualizar el documento referido a la película «Matrix» eliminando del array el primer y último actor.
 
 ```
-
+db.media.updateOne(
+    {Titulo: "Matrix"},
+    {$pop: {actores:-1,actores:1}}
+)
 ```
 
 10. Actualizar el documento referido a la película «Matrix» añadiendo al array actores los valores «Joe
 Pantoliano» y «Antonio Banderas».
+
+```
+db.media.updateOne(
+    {Titulo: "Matrix"},
+    {$push:{actores:{$each:["Joe Pantoliano","Antonio Banderas"]}}}
+)
+```
+
 EJERCICIO 4(CONT)
 Actualización de Documentos
 11. Actualizar el documento referido a la película «Matrix» eliminado todas las apariciones en el array
 «actores» de los valores «Joe Pantoliano» y «Antonio Banderas».
+
+```
+
+```
+
 12. Actualizar el documento referido al disco «Recuerdos» y añadir una nueva canción al array «canciones»:
 {“cancion”:5,
 “titulo”: “El atardecer”,
 “longitud”: “6:50”
 }
+
+```
+db.media.updateOne(
+    {Titulo: "Recuerdos"},
+    {$push:{canciones:{cancion:5,titulo: "El atardecer",longitud:"6:50"}}}
+)
+```
+
 13. Actualizar el documento referido al disco «Recuerdos» de manera que la canción «El atardecer» tenga
 asignado el número 3 en vez de 5.
+
+```
+db.media.updateOne(
+    {$and:[
+        {Titulo: "Recuerdos"},
+        {"canciones.cancion": 5}
+        ]
+    },
+    {$set:{"canciones.$.cancion": 3}}
+)
+```
+
 14. Actualizar el documento referido al disco «Recuerdos» de manera que en una sola operación se cambia el
 nombre del artista a «Los piratillas» y se muestre el documento resultante.
+
+```
+
+```
+
 15. Renombrar el nombre de la colección «media» a «multimedia».
