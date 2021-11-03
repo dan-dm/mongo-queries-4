@@ -2,12 +2,33 @@
 
 1. Insertar los documentos de la colección media.json en una base de datos llamada «media» en una única
 operación.
+
+```
+db.getCollection("media").find({})
+```
+
 2. Actualizar el documento que hace referencia a la película «Matrix», de manera que se cambia su estructura a:
 {“tipo”: “DVD”,
 “Titulo”: “Matrix”,
 “estreno”: 1999,
 “genero”:”accion”
 }
+
+```
+db.media.updateOne( 
+// Query
+{Titulo: "Matrix" },
+// Set
+{$set: 
+    {
+        tipo: "DVD",
+        Titulo: "Matrix",
+        estreno: 1999,
+        genero:"accion"
+     }
+})
+```
+
 3. Considerar un nuevo documento para la colección media:
 {“tipo”: “Libro”,
 “Titulo”: “Constantinopla”,
@@ -16,6 +37,17 @@ operación.
 }
 Añadir el documento a la colección media y a continuación incrementar en 5 unidades el valor de la clave
 «leídos».
+```
+db.media.insertOne(
+    {
+        tipo: "Libro",
+        Titulo: "Constantinopla",
+        capitulos:12,
+        leidos:3
+    }
+)
+```
+
 EJERCICIO 4(CONT)
 Actualización de Documentos
 4. Actualizar el documento referido a la película «Matrix» cambiando el valor de la clave «género» a «ciencia
