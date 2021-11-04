@@ -132,7 +132,11 @@ Actualización de Documentos
 «actores» de los valores «Joe Pantoliano» y «Antonio Banderas».
 
 ```
-
+db.media.updateOne(
+  {Titulo:"Matrix"},
+  {$pullAll:{actores:[
+    "Joe Pantoliano",
+    "Antonio Banderas"]}})
 ```
 
 12. Actualizar el documento referido al disco «Recuerdos» y añadir una nueva canción al array «canciones»:
