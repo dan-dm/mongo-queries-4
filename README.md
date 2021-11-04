@@ -182,4 +182,3 @@ db.media.findOneAndUpdate(
 ```
 db.media.renameCollection("multimedia")
 ```
-
