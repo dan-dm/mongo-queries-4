@@ -166,7 +166,15 @@ db.media.updateOne(
 nombre del artista a «Los piratillas» y se muestre el documento resultante.
 
 ```
-
+db.media.findOneAndUpdate(
+    {Titulo: "Recuerdos"},
+    {$set:{Artista:"Los Piratillas"}},
+    {returnNewDocument:true}
+)
 ```
 
 15. Renombrar el nombre de la colección «media» a «multimedia».
+
+```
+db.media.renameCollection("multimedia")
+```
